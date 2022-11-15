@@ -16,8 +16,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -79,11 +77,11 @@ public class BadIOGUI {
         read.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                try (final BufferedReader r = new BufferedReader(new FileReader(PATH))) {
-                    System.out.println(r.readLine());
+                try (BufferedReader r = new BufferedReader(new FileReader(PATH, StandardCharsets.UTF_8))) {
+                    System.out.println(r.readLine()); // NOPMD: allowed as this is just an exercise
                 } catch (IOException e1) {
                     JOptionPane.showMessageDialog(frame, e1, "Error", JOptionPane.ERROR_MESSAGE);
-                    e1.printStackTrace();
+                    e1.printStackTrace(); // NOPMD
                 }
             }
         });
