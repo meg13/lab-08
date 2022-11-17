@@ -10,5 +10,9 @@ import javax.swing.JFrame;
 public final class SimpleGUIWithFileChooser {
 
     private final JFrame frame = new JFrame();
+    
+    public void SimpleGUIWithFileChooser() {
+
+    }
 
 }
